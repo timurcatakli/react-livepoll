@@ -32,7 +32,7 @@ class PollQuestionForm extends React.Component {
       labelText = `${labelText} - ${config.maxQuestionSize - questionValue.length} chars left...`
     }
     return (
-      <Flex align="center" justify="space-between">
+      <Flex align="flex-end">
         <Box col={12} lg={9}>
           <TextField
             hintText={config.maxQuestionSizeText}
@@ -44,13 +44,14 @@ class PollQuestionForm extends React.Component {
             multiLine
           />
         </Box>
-        <Box col={12} lg={2}>
+        <Box col={12} lg={3}>
           <FlatButton
             label="Add"
             backgroundColor={indigo400}
             labelStyle={styles.mainButton}
             hoverColor={indigo800}
             onClick={this.handleClick}
+            style={{float: 'right'}}
           />
         </Box>
       </Flex>

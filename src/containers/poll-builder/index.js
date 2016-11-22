@@ -1,8 +1,8 @@
 import React from 'react'
+import { config } from './config'
 import PollQuestionContainer from './question/PollQuestionContainer'
 import { Flex, Box } from 'reflexbox'
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card'
-import FlatButton from 'material-ui/FlatButton'
+import {Card, CardTitle, CardText} from 'material-ui/Card'
 
 const PollBuilderContainer = () => {
   return (
@@ -10,39 +10,14 @@ const PollBuilderContainer = () => {
       <Box col={12} lg={6} px={3}>
         {/* <PollQuestionContainer /> */}
         <Card>
-          <CardTitle title="Add a Poll Question" titleColor='red' titleStyle={{borderBottom: '1px solid gray'}} />
+          <CardTitle title="Add Poll Question" titleStyle={config.styles.cardTitleStyle}/>
           <CardText>
-            <Flex>
-              <Box col={12} lg={6}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-              </Box>
-              <Box col={12} lg={6}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-              </Box>
-            </Flex>
+            <PollQuestionContainer />
           </CardText>
-          <CardActions>
-            <FlatButton label="Action1" />
-            <FlatButton label="Action2" />
-          </CardActions>
-
-          <CardTitle title="Add Poll Responses" subtitle="A nice descriptive message goes here..." />
+          <CardTitle title="Add Poll Responses" />
           <CardText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-            Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-            Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+            <PollQuestionContainer />
           </CardText>
-          <CardActions>
-            <FlatButton label="Action1" />
-            <FlatButton label="Action2" />
-          </CardActions>
         </Card>
       </Box>
       <Box col={12} lg={6} px={3}>
