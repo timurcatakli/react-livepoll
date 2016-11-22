@@ -4,6 +4,7 @@ import FlatButton from 'material-ui/FlatButton'
 import { indigo400 } from 'material-ui/styles/colors'
 import { indigo800 } from 'material-ui/styles/colors'
 import { config } from '../config'
+import { Flex, Box } from 'reflexbox'
 
 const styles = {
   mainButton: {
@@ -21,29 +22,34 @@ class PollQuestionForm extends React.Component {
   }
 
   render() {
+    let labelText = 'Poll Question'
+    const {questionValue} = this.state
+    if (questionValue.length > 0) {
+      labelText = `${labelText} - ${config.maxQuestionSize - questionValue.length} chars left...`
+    }
     return (
-      <div>
-        <TextField
-          hintText={config.maxQuestionSizeText}
-          floatingLabelText="Poll Question"
-          value={this.state.questionValue}
-          onChange={this.handleOnChange}
-          errorText={this.state.error}
-          multiLine
-          rows={2}
-        />
-        {this.state.questionValue.length} Characters
-        &nbsp;
-        <FlatButton
-          label="Add"
-          backgroundColor={indigo400}
-          labelStyle={styles.mainButton}
-          hoverColor={indigo800}
-          onClick={this.handleClick}
-        />
-        <br />
-        <br />
-      </div>
+      <Flex align='center' justify="space-between">
+        <Box col={12} lg={9}>
+          <TextField
+            hintText={config.maxQuestionSizeText}
+            floatingLabelText={labelText}
+            value={questionValue}
+            onChange={this.handleOnChange}
+            errorText={this.state.error}
+            fullWidth
+            multiLine
+          />
+        </Box>
+        <Box col={12} lg={2}>
+          <FlatButton
+            label="Add"
+            backgroundColor={indigo400}
+            labelStyle={styles.mainButton}
+            hoverColor={indigo800}
+            onClick={this.handleClick}
+          />
+        </Box>
+      </Flex>
     )
   }
 

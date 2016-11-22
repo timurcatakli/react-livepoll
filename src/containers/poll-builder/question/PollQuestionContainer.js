@@ -6,6 +6,7 @@ import React from 'react'
 import PollQuestionTitle from './PollQuestionTitle'
 import PollQuestionForm from './PollQuestionForm'
 import PollQuestionPreview from './PollQuestionPreview'
+import { Flex, Box } from 'reflexbox'
 
 class PollQuestionContainer extends React.Component {
   constructor(props) {
@@ -18,11 +19,15 @@ class PollQuestionContainer extends React.Component {
   }
   render() {
     return (
-      <div>
-        <PollQuestionTitle title="Add Poll Question"/>
-        <PollQuestionForm question={this.state.poll.question} onUpdate={this.handleQuestionChange} />
+      <Flex wrap>
+        <Box col={12} lg={12}>
+          <PollQuestionTitle title="Add Poll Question"/>
+        </Box>
+        <Box col={12} lg={12}>
+          <PollQuestionForm question={this.state.poll.question} onUpdate={this.handleQuestionChange} />
+        </Box>
         {this.showPollQuestionPreview()}
-      </div>
+      </Flex>
     )
   }
   handleQuestionChange = (question) => {
@@ -32,7 +37,11 @@ class PollQuestionContainer extends React.Component {
 
   showPollQuestionPreview = () => {
     if (this.state.poll.question) {
-      return <PollQuestionPreview question={this.state.poll.question} />
+      return (
+        <Box col={12} lg={12} mt={2}>
+          <PollQuestionPreview question={this.state.poll.question} />
+        </Box>
+      )
     }
     return null
   }

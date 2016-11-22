@@ -2,6 +2,6 @@ export const config = {
   formErrors: {
     e1: 'This field is required'
   },
-  maxQuestionSize: 140,
-  maxQuestionSizeText: 'Max 140 characters'
+  maxQuestionSize: 80,
+  maxQuestionSizeText: 'Max 80 characters'
 }

@@ -1,9 +1,14 @@
 import React from 'react'
+import Divider from 'material-ui/Divider'
 
 class PollQuestionTitle extends React.Component {
   render() {
     return (
-      <h2>{this.props.title}</h2>
+      <div>
+        <h3>{this.props.title}</h3>
+        <Divider />
+      </div>
+
     )
   }
 }
