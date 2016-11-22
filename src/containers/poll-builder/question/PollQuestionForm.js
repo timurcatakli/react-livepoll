@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton'
 import { indigo400 } from 'material-ui/styles/colors'
@@ -10,6 +10,10 @@ const styles = {
   mainButton: {
     color: 'white'
   }
+}
+
+const propTypes = {
+  onUpdate: PropTypes.func
 }
 
 class PollQuestionForm extends React.Component {
@@ -28,7 +32,7 @@ class PollQuestionForm extends React.Component {
       labelText = `${labelText} - ${config.maxQuestionSize - questionValue.length} chars left...`
     }
     return (
-      <Flex align='center' justify="space-between">
+      <Flex align="center" justify="space-between">
         <Box col={12} lg={9}>
           <TextField
             hintText={config.maxQuestionSizeText}
@@ -74,4 +78,5 @@ class PollQuestionForm extends React.Component {
   }
 }
 
+PollQuestionForm.propTypes = propTypes
 export default PollQuestionForm

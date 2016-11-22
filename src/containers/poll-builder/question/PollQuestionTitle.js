@@ -1,5 +1,9 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import Divider from 'material-ui/Divider'
+
+const propTypes = {
+  title: PropTypes.string.isRequired
+}
 
 class PollQuestionTitle extends React.Component {
   render() {
@@ -13,4 +17,5 @@ class PollQuestionTitle extends React.Component {
   }
 }
 
+PollQuestionTitle.propTypes = propTypes
 export default PollQuestionTitle
