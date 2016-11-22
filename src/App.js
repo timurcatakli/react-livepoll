@@ -24,7 +24,7 @@ class App extends React.Component {
             <Box col={12} lg={1} className="b6">Box</Box>
           </Flex>
           <Flex wrap>
-            <Box col={12} lg={12} mb={6}>
+            <Box col={12} lg={12}>
               {this.props.children}
             </Box>
           </Flex>
