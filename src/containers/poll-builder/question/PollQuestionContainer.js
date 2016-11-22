@@ -21,13 +21,23 @@ class PollQuestionContainer extends React.Component {
       <div>
         <PollQuestionTitle title="Add Poll Question"/>
         <PollQuestionForm question={this.state.poll.question} onUpdate={this.handleQuestionChange} />
-        <PollQuestionPreview question={this.state.poll.question} />
+        {this.showPollQuestionPreview()}
       </div>
     )
   }
-  handleQuestionChange(question) {
+  handleQuestionChange = (question) => {
     console.log(question)
+    this.setState({poll: {question: question}})
   }
+
+  showPollQuestionPreview = () => {
+    if (this.state.poll.question) {
+      return <PollQuestionPreview question={this.state.poll.question} />
+    }
+    return null
+  }
+
+
 }
 
 export default PollQuestionContainer
